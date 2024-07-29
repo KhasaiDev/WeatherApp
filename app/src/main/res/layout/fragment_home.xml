@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.fragments.HomeFragment">
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/cityTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ingrese la ciudad"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        >
+    </com.google.android.material.textview.MaterialTextView>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/cityName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Santiago"
+        >
+    </com.google.android.material.textfield.TextInputEditText>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cityButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:text="Buscar"
+        >
+    </com.google.android.material.button.MaterialButton>
+
+</LinearLayout>
