@@ -32,14 +32,10 @@ class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
     private lateinit var cityAdapter: CityAdapter
-    private lateinit var cityDatabaseHelper: CityDataBaseHelper
     private lateinit var viewModel: CityViewModel
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(requireActivity()).get(CityViewModel::class.java)
         cityAdapter = CityAdapter()
@@ -52,12 +48,15 @@ class DetailFragment : Fragment() {
         return binding.root
     }
 
+
+    //OnViewCreated
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //paso de informacion para el nombre de la ciudad
         val cityName = arguments?.getString("cityName")
         binding.cityDetailName.text = cityName
-        cityDatabaseHelper = CityDataBaseHelper(requireContext())
 
+        //Habilitamos el LongClick y llamamos al Dialogo flotante
         binding.cityDetailName.setOnLongClickListener {
             showEditCityDialog()
             true
@@ -75,6 +74,7 @@ class DetailFragment : Fragment() {
     }
 
 
+    //Dialogo Flotante para el cambio de nombre de la ciudad
     private fun showEditCityDialog() {
         // Inflar el layout del diálogo
         val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_pop, null)
@@ -96,6 +96,7 @@ class DetailFragment : Fragment() {
     }
 
 
+    //OnDestroyView
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
